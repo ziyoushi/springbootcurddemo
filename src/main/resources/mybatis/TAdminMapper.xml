@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.springboot.mapper.TAdminMapper">
+  <!--public interface TAdminMapper {
+    TAdmin selectTAdmin();
+}-->
+  <select id="selectTAdmin" resultType="com.atguigu.springboot.bean.TAdmin">
+        select * from t_admin
+  </select>
+
+<!--void deleteById(Integer id);-->
+    <delete id="deleteById">
+        delete from t_admin where id = #{value}
+    </delete>
+
+<!--  void addAdmin(TAdmin admin);  -->
+    <insert id="addAdmin">
+        insert into t_admin(loginacct,username,email,userpswd,createtime) values (#{loginacct},#{username},#{email},#{userpswd},#{createtime})
+    </insert>
+
+<!--  TAdmin selectTAdminById(Integer id);  -->
+    <select id="selectTAdminById" resultType="com.atguigu.springboot.bean.TAdmin">
+        select * from t_admin where id = #{value}
+    </select>
+
+<!--  更新   void updateTadmin(TAdmin admin);-->
+    <update id="updateTadmin">
+        update t_admin set loginacct = #{loginacct},username = #{username},email = #{email} where id = #{id}
+    </update>
+</mapper>
